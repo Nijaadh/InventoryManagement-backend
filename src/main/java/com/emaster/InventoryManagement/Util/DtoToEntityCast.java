@@ -1,6 +1,8 @@
 package com.emaster.InventoryManagement.Util;
 
+import com.emaster.InventoryManagement.DTO.CatageryDTO;
 import com.emaster.InventoryManagement.DTO.EmployeeDTO;
+import com.emaster.InventoryManagement.Entity.Catagery;
 import com.emaster.InventoryManagement.Entity.Employee;
 
 
@@ -35,5 +37,17 @@ public class DtoToEntityCast {
         return employee;
 
 
+    }
+
+
+    public static Catagery castCategoryDtoInToCategory(CatageryDTO catageryDTO){
+        Catagery catagery = new Catagery();
+
+        catagery.setCatId(Long.valueOf(catageryDTO.getCatId()));
+        catagery.setCatName(catageryDTO.getCatName());
+        catagery.setCatDiscription(String.valueOf(catageryDTO.getCatDiscription()));
+        catagery.setCommonStatus(catageryDTO.getCommonStatus());
+
+        return catagery;
     }
 }

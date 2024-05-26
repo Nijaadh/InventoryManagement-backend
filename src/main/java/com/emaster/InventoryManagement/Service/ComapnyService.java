@@ -1,2 +1,4 @@
-package com.emaster.InventoryManagement.Service;public interface ComapnyService {
+package com.emaster.InventoryManagement.Service;
+
+public interface ComapnyService {
 }

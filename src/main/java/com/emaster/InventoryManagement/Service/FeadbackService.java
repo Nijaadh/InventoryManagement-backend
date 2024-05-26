@@ -1,2 +1,4 @@
-package com.emaster.InventoryManagement.Service;public interface FeadbackService {
+package com.emaster.InventoryManagement.Service;
+
+public interface FeadbackService {
 }

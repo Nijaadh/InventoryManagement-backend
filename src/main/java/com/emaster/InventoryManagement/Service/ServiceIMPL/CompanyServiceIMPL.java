@@ -1,2 +1,8 @@
-package com.emaster.InventoryManagement.Service.ServiceIMPL;public class CompanyServiceIMPL {
+package com.emaster.InventoryManagement.Service.ServiceIMPL;
+
+import com.emaster.InventoryManagement.Service.ComapnyService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class CompanyServiceIMPL implements ComapnyService {
 }

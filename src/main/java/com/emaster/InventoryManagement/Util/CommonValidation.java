@@ -1,5 +1,7 @@
 package com.emaster.InventoryManagement.Util;
 
+import com.emaster.InventoryManagement.Const.CommonStatus;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.regex.Matcher;
@@ -11,6 +13,8 @@ public class CommonValidation {
 
 //*******************************************-REGEX-PATTERNS-******************************************************
     final private static String regexLETTERS_ONLY= "^[a-zA-Z]+$";
+    final private static String regexLETTERS_AND_SPACES = "^[a-zA-Z ]+$";
+
     final private static String regexNIC1 = "^[0-9]{9}[VX]$";
     final private static String regexNIC2 = "^[0-9]{12}$";
     final private static String regexEMAIL = "^[a-zA-Z0-9_+&*-]+(?:\\.[a-zA-Z0-9_+&*-]+)*@(?:[a-zA-Z0-9-]+\\.)+[a-zA-Z]{2,7}$";
@@ -26,6 +30,7 @@ public class CommonValidation {
     final private static Pattern patternNIC1 = Pattern.compile(regexNIC1);
     final private static Pattern patternNIC2 = Pattern.compile(regexNIC2);
     final private static Pattern patternLETTERS_ONLY = Pattern.compile(regexLETTERS_ONLY);
+    final private static Pattern patternLETTERS_AND_SPACE_ONLY = Pattern.compile(regexLETTERS_AND_SPACES);
     final private static Pattern patternEMAIL = Pattern.compile(regexEMAIL);
     final private static Pattern patternPHONE_NO_10_DIGIT = Pattern.compile(regexPHONE_NO_10_DIGIT);
     final private static Pattern patternPHONE_NO_12_DIGIT = Pattern.compile(regexPHONE_NO_12_DIGIT);
@@ -33,11 +38,30 @@ public class CommonValidation {
     final private static Pattern patternPASSWORD = Pattern.compile(regexPASSWORD);
 //*******************************************-MATCHERS-************************************************************
 
+    public static boolean commenStatusNullValidation(CommonStatus inputStatus) {
+        if (inputStatus == null) {
+            return false;
+        }
+        return true;
+    }
 
 
     public static boolean stringNullValidation(String inputString){
         return inputString == null || inputString.isEmpty() || inputString.isBlank();
     }
+
+    public static boolean integerNumberNullValidation(Integer inputInteger){
+        return inputInteger == null ;
+    }
+
+    public static boolean LongNumberNullValidation(Long inputLong){
+        return inputLong == null ;
+    }
+
+    public static boolean StringNumberNullValidation(String inputString){
+        return inputString == null || inputString.isEmpty() || inputString.isBlank();
+    }
+
 
     public static boolean iDNullValidation(Long id){
         if(id!=null){
@@ -46,12 +70,64 @@ public class CommonValidation {
         return true;
     }
 
+
+
+
+
+
+
+
+
+    public static boolean isValidCommenStatus(CommonStatus inputStatus) {
+        if (inputStatus == null) {
+            return false;
+        }
+
+        switch (inputStatus) {
+            case ACTIVE:
+            case INACTIVE:
+            case DELETE:
+                return false;
+            default:
+                return true;
+        }
+    }
+
+
     public static boolean isValidId(Long id){
         if(id>0){
             return false;
         }
         return true;
     }
+
+    public static boolean isValidIntegerNumber(Integer inputInteger){
+        return !(inputInteger != null && inputInteger>=0 );
+    }
+
+    public static boolean isValidLongNumber(Long inputLong){
+        return !(inputLong != null && inputLong>=0 );
+    }
+
+    public static boolean isValidStringNumber(String inputString){
+        return !(inputString != null && !inputString.isEmpty() && !inputString.isBlank() && Integer.parseInt(inputString)>=0);
+    }
+
+
+
+
+
+
+
+    public static boolean isValidText(String text){
+        Matcher matcher = patternLETTERS_AND_SPACE_ONLY.matcher(text);
+
+        if(text.length()>=10 && matcher.matches()){
+            return false;
+        }
+        return true;
+    }
+
     public static boolean isvalidNic(String nic) {
         Matcher matcher1 = patternNIC1.matcher(nic);
         Matcher matcher2 = patternNIC2.matcher(nic);

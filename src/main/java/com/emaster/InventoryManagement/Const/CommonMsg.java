@@ -14,6 +14,19 @@ public class CommonMsg {
     public  static final String EMPTY_EMG_CONTACT_NO = "emergency contact no is Empty!";
     public  static final String EMPTY_USER_NAME = "user name is Empty!";
     public  static final String EMPTY_PASSWORD = "password is Empty!";
+
+    //<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-C-A-T-E-G-O-R-Y->>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+    public static final String EMPTY_CAT_NAME = "Category name is Empty!";
+    public static final String EMPTY_CAT_DISCRIPTION = "Category discription is Empty!";
+    public static final String EMPTY_NAME = "name is Empty!";
+    public static final String EMPTY_DISCRIPTION ="discription is Empty" ;
+    public static final String EMPTY_QTY = "qty is Empty!";
+    public static final String EMPTY_CURRENCY_VALUE = "currency value is Empty!";
+    public static final String EMPTY_IMAGE_PATH = "image path is Empty!";
+    public static final String EMPTY_FORIEGN_KEY_VALUE = "forieng key value is Empty!";
+
+
     public static String EMPTY_STATUS = "status is Empty!";
 
 //    ******************************************-E-M-P-T-Y--M-S-G-************************************************
@@ -33,7 +46,16 @@ public class CommonMsg {
     public  static final String INVALID_EMG_CONTACT_NO = "Invalid emergency contact No!";
     public  static final String INVALID_USER_NAME = "Invalid user name!";
     public  static final String INVALID_PASSWORD = "Invalid password!";
-    public static String RECORDS_ALREADY_EXIST = "record is already Exist!";
+    public static String RECORDS_ALREADY_EXIST = "Record is already Exist!";
+    public static final String INVALID_NAME = "Invalid name!";
+    public static final String INVALID_DISCRIPTION = "Invalid discription!";
+    public static final String INVALID_QTY = "Invalid QTY!";
+    public static final String INVALID_CURRENCY_VALUE = "Invalid currency value!";
+    public static final String INVALID_IMAGE_PATH = "Invalid image path!";
+    public static final String INVALID_FORIEGN_KEY_VALUE = "Invalid fo";
+
+
+    public static final String INVALID_STATUS = "Invalid status!";
 
 //    ******************************************-I-N-V-A-L-I-D--M-S-G-*********************************************
 }

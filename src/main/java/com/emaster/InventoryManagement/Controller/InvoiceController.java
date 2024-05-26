@@ -1,2 +1,4 @@
-package com.emaster.InventoryManagement.Controller;public class InvoiceController {
+package com.emaster.InventoryManagement.Controller;
+
+public class InvoiceController {
 }
