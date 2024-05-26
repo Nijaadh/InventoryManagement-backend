@@ -2,9 +2,10 @@ package com.emaster.InventoryManagement.Util;
 
 import com.emaster.InventoryManagement.DTO.CatageryDTO;
 import com.emaster.InventoryManagement.DTO.EmployeeDTO;
+import com.emaster.InventoryManagement.DTO.ItemDTO;
 import com.emaster.InventoryManagement.Entity.Catagery;
 import com.emaster.InventoryManagement.Entity.Employee;
-
+import com.emaster.InventoryManagement.Entity.Item;
 
 
 public class DtoToEntityCast {
@@ -49,5 +50,22 @@ public class DtoToEntityCast {
         catagery.setCommonStatus(catageryDTO.getCommonStatus());
 
         return catagery;
+    }
+
+    public static Item  castItemDtoInToItem(ItemDTO itemDTO){
+        Item item = new Item();
+
+        item.setItemId(itemDTO.getItemId());
+        item.setItemName(itemDTO.getItemName());
+        item.setItemDiscription(itemDTO.getItemDiscription());
+        item.setItemQty(itemDTO.getItemQty());
+        item.setItem_reorderLevel(itemDTO.getItem_reorderLevel());
+        item.setItemPrice(itemDTO.getItemPrice());
+        item.setItemImage(itemDTO.getItemImage());
+        item.setItemCatId(itemDTO.getItemCatId());
+        item.setItemComId(itemDTO.getItemComId());
+        item.setCommonStatus(itemDTO.getItemCommonStatus());
+
+        return item;
     }
 }

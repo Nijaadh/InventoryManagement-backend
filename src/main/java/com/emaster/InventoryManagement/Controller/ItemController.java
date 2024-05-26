@@ -7,6 +7,8 @@ import com.emaster.InventoryManagement.Util.CommonResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
+
 @RestController
 @CrossOrigin
 @RequestMapping(path="api/v1/itemManagement")
@@ -30,9 +32,17 @@ public class ItemController {
         return itemService.updateItem(itemDTO);
     }
 
-    @DeleteMapping(path="/deleteItem")
-    public CommonResponse deleteItem(@PathVariable Long itemId){
-        return itemService.deleteItem(itemId);
+    @DeleteMapping(path = "/deleteItem/{itemId}")
+    public CommonResponse deleteItem(@PathVariable Long itemId) {
+        try {
+            return itemService.deleteItem(itemId);
+        } catch (Exception e) {
+            CommonResponse commonResponse = new CommonResponse();
+            commonResponse.setCommonMessage("Failed to delete item");
+            commonResponse.setErrorMessages(Collections.singletonList(e.getMessage()));
+            commonResponse.setStatus(false);
+            return commonResponse;
+        }
     }
 
     @GetMapping(path="/getAllItem")
@@ -40,8 +50,8 @@ public class ItemController {
         return itemService.getAllItem();
     }
 
-    @GetMapping(path="/getItem")
+    @GetMapping(path="/getItem/{itemId}")
     public CommonResponse getItem(@PathVariable String itemId){
-        return itemService.getEmployee(itemId);
+        return itemService.getItem(itemId);
     }
 }

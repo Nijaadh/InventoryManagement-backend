@@ -1,7 +1,9 @@
 package com.emaster.InventoryManagement.Util;
 
 import com.emaster.InventoryManagement.DTO.EmployeeDTO;
+import com.emaster.InventoryManagement.DTO.ItemDTO;
 import com.emaster.InventoryManagement.Entity.Employee;
+import com.emaster.InventoryManagement.Entity.Item;
 
 public class EntityToDtoCast {
 
@@ -30,4 +32,23 @@ public class EntityToDtoCast {
 
         return employeeDTO;
     }
+
+
+
+    public static ItemDTO castItemIntoItemDto(Item item) {
+        ItemDTO itemDTO = new ItemDTO();
+
+        itemDTO.setItemId(item.getItemId());
+        itemDTO.setItemName(item.getItemName());
+        itemDTO.setItemDiscription(item.getItemDiscription());
+        itemDTO.setItemQty(item.getItemQty());
+        itemDTO.setItem_reorderLevel(item.getItem_reorderLevel());
+        itemDTO.setItemPrice(item.getItemPrice());
+        itemDTO.setItemImage(item.getItemImage());
+        itemDTO.setItemCatId(item.getItemCatId());
+        itemDTO.setItemComId(item.getItemComId());
+        itemDTO.setItemCommonStatus(item.getCommonStatus());
+        return itemDTO;
+    }
+
 }

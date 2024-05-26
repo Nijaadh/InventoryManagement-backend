@@ -13,5 +13,5 @@ public interface ItemService {
 
     CommonResponse getAllItem();
 
-    CommonResponse getEmployee(String itemId);
+    CommonResponse getItem(String itemId);
 }

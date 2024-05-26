@@ -39,7 +39,7 @@ public class CommonValidation {
 //*******************************************-MATCHERS-************************************************************
 
     public static boolean commenStatusNullValidation(CommonStatus inputStatus) {
-        if (inputStatus == null) {
+        if (inputStatus != null) {
             return false;
         }
         return true;
@@ -79,9 +79,7 @@ public class CommonValidation {
 
 
     public static boolean isValidCommenStatus(CommonStatus inputStatus) {
-        if (inputStatus == null) {
-            return false;
-        }
+
 
         switch (inputStatus) {
             case ACTIVE:
@@ -91,6 +89,7 @@ public class CommonValidation {
             default:
                 return true;
         }
+
     }
 
 
