@@ -2,8 +2,9 @@ package com.emaster.InventoryManagement.Util;
 
 import com.emaster.InventoryManagement.Const.CommonStatus;
 
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.sql.Date;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -151,14 +152,22 @@ public class CommonValidation {
         dateFormat.setLenient(false);
 
         try {
+            // Parse the input date string to java.util.Date
+            java.util.Date utilDate = dateFormat.parse(date);
 
-            Date inputDate = dateFormat.parse(date);
-            Date currentDate = new Date();
-            if (inputDate.before(currentDate)) {
+            // Convert java.util.Date to java.sql.Date
+            Date sqlInputDate = new Date(utilDate.getTime());
+
+            // Get the current date and convert it to java.sql.Date
+            java.util.Date currentUtilDate = new java.util.Date();
+            Date sqlCurrentDate = new Date(currentUtilDate.getTime());
+
+            // Check if input date is before the current date
+            if (sqlInputDate.before(sqlCurrentDate)) {
                 return false;
             }
-        } catch (Exception e) {
-            System.out.println("date parsing error");
+        } catch (ParseException e) {
+            System.out.println("Date parsing error");
             LOGGER.error("/************************************Exception in Common validation -> isValidDate(^)!");
         }
 

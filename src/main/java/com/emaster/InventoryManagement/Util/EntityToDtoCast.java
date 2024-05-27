@@ -42,7 +42,7 @@ public class EntityToDtoCast {
         itemDTO.setItemName(item.getItemName());
         itemDTO.setItemDiscription(item.getItemDiscription());
         itemDTO.setItemQty(item.getItemQty());
-        itemDTO.setItem_reorderLevel(item.getItem_reorderLevel());
+        itemDTO.setItem_reorderLevel(item.getItemQty());
         itemDTO.setItemPrice(item.getItemPrice());
         itemDTO.setItemImage(item.getItemImage());
         itemDTO.setItemCatId(item.getItemCatId());

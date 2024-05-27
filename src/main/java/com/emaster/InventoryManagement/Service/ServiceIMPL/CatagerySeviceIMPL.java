@@ -17,6 +17,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Optional;
 
 import static org.hibernate.tool.schema.SchemaToolingLogging.LOGGER;
 
@@ -71,7 +72,30 @@ public class CatagerySeviceIMPL implements CategeryService {
 
     @Override
     public CommonResponse updateCategory(CatageryDTO catagsaeryDTO) {
-        return null;
+        CommonResponse commonResponse = new CommonResponse();
+        List<String> validationList = this.CategeryValidation(catagsaeryDTO);
+
+        try {
+            if (!validationList.isEmpty()) {
+                commonResponse.setErrorMessages(validationList);
+                commonResponse.setCommonMessage("Category update failed.");
+                return commonResponse;
+            }
+
+            Optional<Catagery> optionalCategory = catageryRepository.findById(catagsaeryDTO.getCatId());
+            if (optionalCategory.isPresent()) {
+                Catagery updatedCategory = DtoToEntityCast.castCategoryDtoInToCategory(catagsaeryDTO);
+                catageryRepository.save(updatedCategory);
+                commonResponse.setPayload(Collections.singletonList(updatedCategory));
+                commonResponse.setCommonMessage("Category updated successfully.");
+                commonResponse.setStatus(true);
+            } else {
+                commonResponse.setCommonMessage("Category not found.");
+            }
+        } catch (Exception e) {
+            LOGGER.error("Exception in Category Service -> updateCategory!", e);
+        }
+        return commonResponse;
     }
 
     @Override
