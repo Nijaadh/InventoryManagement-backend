@@ -10,6 +10,7 @@ import javax.persistence.*;
 public class Employee {
     @Id
     @Column(name="empId")
+
     private Long empId;
     @Column(name="empFName")
     private String empFName;

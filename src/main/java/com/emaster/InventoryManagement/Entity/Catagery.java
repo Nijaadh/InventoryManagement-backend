@@ -2,16 +2,14 @@ package com.emaster.InventoryManagement.Entity;
 
 import com.emaster.InventoryManagement.Const.CommonStatus;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
 public class Catagery {
     @Id
     @Column(name="cat_id")
+
     private Long catId;
     @Column(name="cat_name")
     private String catName;

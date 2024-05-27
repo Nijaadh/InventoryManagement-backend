@@ -13,5 +13,5 @@ public interface EmployeeService {
 
     CommonResponse getAllEmployee();
 
-    CommonResponse getEmployee(String employeeId);
+    CommonResponse getEmployee(Long employeeId);
 }

@@ -34,8 +34,8 @@ public EmployeeController(EmployeeService employeeService){
         return employeeService.updateEmployee(employeeDTO);
     }
 
-    @DeleteMapping(path="/deleteEmployee")
-    public CommonResponse deleteEmployee(@PathVariable Long employeeId){
+    @DeleteMapping(path = "/deleteEmployee/{employeeId}")
+    public CommonResponse deleteEmployee(@PathVariable Long employeeId) {
         return employeeService.deleteEmployee(employeeId);
     }
 
@@ -44,8 +44,8 @@ public EmployeeController(EmployeeService employeeService){
         return employeeService.getAllEmployee();
     }
 
-    @GetMapping(path="/getEmployee")
-    public CommonResponse getEmployee(@PathVariable String employeeId){
+    @GetMapping(path = "/getEmployee/{employeeId}")
+    public CommonResponse getEmployee(@PathVariable Long employeeId) {
         return employeeService.getEmployee(employeeId);
     }
 }

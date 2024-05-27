@@ -106,24 +106,27 @@ public class EmployeeServiceIMPL implements EmployeeService {
     public CommonResponse deleteEmployee(Long employeeId) {
 
         CommonResponse commonResponse = new CommonResponse();
-        Employee employee = new Employee();
-        List<String>validationList;
-
-        validationList=this.existingEmployeeValidation(employeeId);
-
-        try{
-            if(!validationList.isEmpty()){
+        try {
+            List<String> validationList = this.existingEmployeeValidation(employeeId);
+            if (!validationList.isEmpty()) {
                 commonResponse.setErrorMessages(validationList);
-                commonResponse.setCommonMessage("Employee Deletion Faild");
+                commonResponse.setCommonMessage("Employee deletion failed.");
                 return commonResponse;
             }
-            employee.setCommonStatus(CommonStatus.DELETE);
-            commonResponse.setPayload(Collections.singletonList(employee));
-            commonResponse.setCommonMessage("Employee Delition Successfull");
-            commonResponse.setStatus(true);
 
-        }catch (Exception e){
-            LOGGER.error("/**************** Exception in Employee Service -> deleteEmployee(^)!"+e);
+            Optional<Employee> optionalEmployee = employeeRepository.findById(employeeId);
+            if (optionalEmployee.isPresent()) {
+                Employee employee = optionalEmployee.get();
+                employee.setCommonStatus(CommonStatus.DELETE);
+                employeeRepository.save(employee);
+                commonResponse.setPayload(Collections.singletonList(employee));
+                commonResponse.setCommonMessage("Employee deletion successful.");
+                commonResponse.setStatus(true);
+            } else {
+                commonResponse.setCommonMessage("Employee not found.");
+            }
+        } catch (Exception e) {
+            LOGGER.error("Exception in EmployeeService -> deleteEmployee:", e);
         }
         return commonResponse;
     }
@@ -157,7 +160,7 @@ public class EmployeeServiceIMPL implements EmployeeService {
     }
 
     @Override
-    public CommonResponse getEmployee(String employeeId) {
+    public CommonResponse getEmployee(Long employeeId) {
         CommonResponse commonResponse = new CommonResponse();
         List<String>validationList=new ArrayList<>();
         Employee existingEmployee = new Employee();

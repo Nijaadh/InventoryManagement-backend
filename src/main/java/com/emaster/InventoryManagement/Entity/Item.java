@@ -2,16 +2,14 @@ package com.emaster.InventoryManagement.Entity;
 
 import com.emaster.InventoryManagement.Const.CommonStatus;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table
 public class Item {
     @Id
     @Column(name="item_id")
+
     private Long itemId;
     @Column(name="item_name")
     private String itemName;
