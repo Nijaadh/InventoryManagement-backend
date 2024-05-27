@@ -1,13 +1,7 @@
 package com.emaster.InventoryManagement.Util;
 
-import com.emaster.InventoryManagement.DTO.CatageryDTO;
-import com.emaster.InventoryManagement.DTO.ComapnyDTO;
-import com.emaster.InventoryManagement.DTO.EmployeeDTO;
-import com.emaster.InventoryManagement.DTO.ItemDTO;
-import com.emaster.InventoryManagement.Entity.Catagery;
-import com.emaster.InventoryManagement.Entity.Company;
-import com.emaster.InventoryManagement.Entity.Employee;
-import com.emaster.InventoryManagement.Entity.Item;
+import com.emaster.InventoryManagement.DTO.*;
+import com.emaster.InventoryManagement.Entity.*;
 
 
 public class DtoToEntityCast {
@@ -81,5 +75,58 @@ public class DtoToEntityCast {
         company.setCommonStatus(companyDTO.getCommonStatus());
         return company;
 
+    }
+
+    public static Customer castCustomerDtoInToCustomer(CustomerDTO customerDTO) {
+        if (customerDTO == null) {
+            return null;
+        }
+
+        Customer customer = new Customer();
+        customer.setCusId(customerDTO.getCusId());
+        customer.setCusFName(customerDTO.getCusFName());
+        customer.setCusLName(customerDTO.getCusLName());
+        customer.setCusNIC(customerDTO.getCusNIC());
+        customer.setCusGender(customerDTO.getCusGender());
+        customer.setCusGmail(customerDTO.getCusGmail());
+        customer.setCusDOB(customerDTO.getCusDOB());
+        customer.setCusContactNo(customerDTO.getCusContactNo());
+        customer.setCusAddress(customerDTO.getCusAddress());
+        customer.setCusUserName(customerDTO.getCusUserName());
+        customer.setCusPassword(customerDTO.getCusPassword());
+        customer.setCommonStatus(customerDTO.getCommonStatus());
+
+        return customer;
+    }
+
+    public static Feadback castFeedbackDtoInToFeedback(FeadbackDTO feedbackDTO) {
+        if (feedbackDTO == null) {
+            return null;
+        }
+
+        Feadback feadback = new Feadback();
+        feadback.setFeadbackId(feedbackDTO.getFeadbackId());
+        feadback.setCusId(feedbackDTO.getCusId());
+        feadback.setFeadback(feedbackDTO.getFeadback());
+        feadback.setCommonStatus(feedbackDTO.getCommonStatus());
+
+        return feadback;
+    }
+
+    public static Invoice castInvoiceDtoIntoInvoice(InvoiceDTO invoiceDTO) {
+        if (invoiceDTO == null) {
+            return null;
+        }
+
+        Invoice invoice = new Invoice();
+        invoice.setInvoiceId(invoiceDTO.getInvoiceId());
+        invoice.setInvoiceDate(invoiceDTO.getInvoiceDate());
+        invoice.setInvoiceAmmount(invoiceDTO.getInvoiceAmmount());
+        invoice.setInvoicePaidAmmount(invoiceDTO.getInvoicePaidAmmount());
+        invoice.setInvoiceBalanceAmmount(invoiceDTO.getInvoiceBalanceAmmount());
+        invoice.setInvoice_cusId(invoiceDTO.getInvoice_cusId());
+        invoice.setCommonStatus(invoiceDTO.getCommonStatus());
+
+        return invoice;
     }
 }
