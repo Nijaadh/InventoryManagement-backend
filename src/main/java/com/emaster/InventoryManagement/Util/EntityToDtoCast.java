@@ -1,7 +1,11 @@
 package com.emaster.InventoryManagement.Util;
 
+import com.emaster.InventoryManagement.DTO.CatageryDTO;
+import com.emaster.InventoryManagement.DTO.ComapnyDTO;
 import com.emaster.InventoryManagement.DTO.EmployeeDTO;
 import com.emaster.InventoryManagement.DTO.ItemDTO;
+import com.emaster.InventoryManagement.Entity.Catagery;
+import com.emaster.InventoryManagement.Entity.Company;
 import com.emaster.InventoryManagement.Entity.Employee;
 import com.emaster.InventoryManagement.Entity.Item;
 
@@ -49,6 +53,28 @@ public class EntityToDtoCast {
         itemDTO.setItemComId(item.getItemComId());
         itemDTO.setItemCommonStatus(item.getCommonStatus());
         return itemDTO;
+    }
+
+    public static CatageryDTO castCategoryIntoCategoryDto(Catagery catagery) {
+        CatageryDTO catageryDTO = new CatageryDTO();
+
+        catageryDTO.setCatId(catagery.getCatId());
+        catageryDTO.setCatName(catagery.getCatName());
+        catageryDTO.setCatDiscription(catagery.getCatDiscription());
+        catageryDTO.setCommonStatus(catagery.getCommonStatus());
+        return catageryDTO;
+
+    }
+
+    public static ComapnyDTO castCompanyInToCompanyDto(Company company) {
+        ComapnyDTO companyDTO = new ComapnyDTO();
+        companyDTO.setComId(company.getComId());
+        companyDTO.setComName(company.getComName());
+        companyDTO.setHotline(company.getHotline());
+        companyDTO.setGmail(company.getGmail());
+        companyDTO.setAddress(company.getAddress());
+        companyDTO.setCommonStatus(company.getCommonStatus());
+        return companyDTO;
     }
 
 }

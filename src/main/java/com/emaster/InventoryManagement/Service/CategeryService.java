@@ -13,5 +13,5 @@ public interface CategeryService {
 
     CommonResponse getAllCatagory();
 
-    CommonResponse getCategery(String employeeId);
+    CommonResponse getCategery(String categoryId);
 }

@@ -1,9 +1,11 @@
 package com.emaster.InventoryManagement.Util;
 
 import com.emaster.InventoryManagement.DTO.CatageryDTO;
+import com.emaster.InventoryManagement.DTO.ComapnyDTO;
 import com.emaster.InventoryManagement.DTO.EmployeeDTO;
 import com.emaster.InventoryManagement.DTO.ItemDTO;
 import com.emaster.InventoryManagement.Entity.Catagery;
+import com.emaster.InventoryManagement.Entity.Company;
 import com.emaster.InventoryManagement.Entity.Employee;
 import com.emaster.InventoryManagement.Entity.Item;
 
@@ -67,5 +69,17 @@ public class DtoToEntityCast {
         item.setCommonStatus(itemDTO.getItemCommonStatus());
 
         return item;
+    }
+
+    public static Company castCompanyDtoInToCompany(ComapnyDTO companyDTO){
+        Company company = new Company();
+        company.setComId(companyDTO.getComId());
+        company.setComName(companyDTO.getComName());
+        company.setHotline(companyDTO.getHotline());
+        company.setGmail(companyDTO.getGmail());
+        company.setAddress(companyDTO.getAddress());
+        company.setCommonStatus(companyDTO.getCommonStatus());
+        return company;
+
     }
 }

@@ -38,7 +38,7 @@ public class catageryController {
         return catageryService.updateCategory(catagsaeryDTO);
     }
 
-    @DeleteMapping(path="/deleteCategory")
+    @DeleteMapping(path="/deleteCategory/{catagsaeryId}")
     public CommonResponse deleteCategery(@PathVariable Long catagsaeryId){
         return catageryService.deleteCategory(catagsaeryId);
     }
@@ -48,9 +48,9 @@ public class catageryController {
         return catageryService.getAllCatagory();
     }
 
-    @GetMapping(path="/getCategory")
-    public CommonResponse getEmployee(@PathVariable String employeeId){
-        return catageryService.getCategery(employeeId);
+    @GetMapping(path="/getCategory/{categoryId}")
+    public CommonResponse getEmployee(@PathVariable String categoryId){
+        return catageryService.getCategery(categoryId);
     }
 
 }
