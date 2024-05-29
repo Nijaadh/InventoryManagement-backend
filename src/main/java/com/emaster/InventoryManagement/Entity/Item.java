@@ -44,6 +44,8 @@ public class Item {
         this.itemCatId = itemCatId;
         this.itemComId = itemComId;
         this.commonStatus = commonStatus;
+
+
     }
 
     public Long getItemId() {

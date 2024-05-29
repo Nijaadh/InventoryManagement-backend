@@ -29,10 +29,10 @@ import static org.hibernate.tool.schema.SchemaToolingLogging.LOGGER;
 public class ItemServiceIMPL implements ItemService {
 
 
-    @Autowired
+
     private final ItemRepository itemRepository;
 
-
+    @Autowired
     public ItemServiceIMPL(ItemRepository itemRepository){
         this.itemRepository=itemRepository;
     }

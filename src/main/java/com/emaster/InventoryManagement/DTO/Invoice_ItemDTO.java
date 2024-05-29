@@ -3,18 +3,19 @@ package com.emaster.InventoryManagement.DTO;
 import com.emaster.InventoryManagement.Const.CommonStatus;
 
 import java.sql.Date;
+import java.util.Arrays;
 
 public class Invoice_ItemDTO {
     private Long invoiceId;
-    private Long itemId;
+    private Long invoiceItems[];
     private CommonStatus commonStatus;
 
     public Invoice_ItemDTO() {
     }
 
-    public Invoice_ItemDTO(Long invoiceId, Long itemId, CommonStatus commonStatus) {
+    public Invoice_ItemDTO(Long invoiceId, Long[] invoiceItems, CommonStatus commonStatus) {
         this.invoiceId = invoiceId;
-        this.itemId = itemId;
+        this.invoiceItems = invoiceItems;
         this.commonStatus = commonStatus;
     }
 
@@ -26,12 +27,12 @@ public class Invoice_ItemDTO {
         this.invoiceId = invoiceId;
     }
 
-    public Long getItemId() {
-        return itemId;
+    public Long[] getInvoiceItems() {
+        return invoiceItems;
     }
 
-    public void setItemId(Long itemId) {
-        this.itemId = itemId;
+    public void setInvoiceItems(Long[] invoiceItems) {
+        this.invoiceItems = invoiceItems;
     }
 
     public CommonStatus getCommonStatus() {
@@ -46,7 +47,7 @@ public class Invoice_ItemDTO {
     public String toString() {
         return "Invoice_ItemDTO{" +
                 "invoiceId=" + invoiceId +
-                ", itemId=" + itemId +
+                ", invoiceItems=" + Arrays.toString(invoiceItems) +
                 ", commonStatus=" + commonStatus +
                 '}';
     }

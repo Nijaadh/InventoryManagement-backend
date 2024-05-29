@@ -129,4 +129,17 @@ public class DtoToEntityCast {
 
         return invoice;
     }
+
+    public static Invoice_Item cast_InvoiceItemsDto_Into_InvoiceItems(Invoice_ItemDTO invoiceItemDTO) {
+        if (invoiceItemDTO == null) {
+            return null;
+        }
+
+        Invoice_Item invoiceItem = new Invoice_Item();
+
+        invoiceItem.setInvoiceId(invoiceItemDTO.getInvoiceId());
+        //invoiceItem.setItemId(invoiceItemDTO.getInvoiceItems());
+        invoiceItem.setCommonStatus(invoiceItemDTO.getCommonStatus());
+        return invoiceItem;
+    }
 }

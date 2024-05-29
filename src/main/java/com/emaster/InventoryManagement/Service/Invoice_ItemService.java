@@ -11,7 +11,9 @@ public interface Invoice_ItemService {
 
     CommonResponse deleteInvoiceItems(Long invoiceItemId);
 
-    CommonResponse getAllInvoiceItems();
+    CommonResponse getAllInvoiceItems(Long invoiceId);
 
-    CommonResponse getInvoiceItems(Long invoiceItemId);
+
+//    CommonResponse getAllInvoiceItems();
+//    CommonResponse getInvoiceItems(Long invoiceItemId);
 }
