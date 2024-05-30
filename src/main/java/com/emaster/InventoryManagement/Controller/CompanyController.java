@@ -27,7 +27,15 @@ public class CompanyController {
 
     @PostMapping(path = "/saveCompany")
     public CommonResponse saveCompany(@RequestBody ComapnyDTO companyDTO) {
-        return companyService.saveCompany(companyDTO);
+        System.out.println("here!!");
+        System.out.println(companyDTO.toString());
+//        System.out.println(new Gson().toJsosaveCompanyn(companyDTO));
+
+        CommonResponse cmr;
+        cmr = companyService.saveCompany(companyDTO);
+
+        System.out.println(cmr.toString());
+        return cmr;
     }
 
     @PutMapping(path = "/updateCompany")
